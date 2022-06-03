@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: whitesmoke;
+}
+
+.header {
+    padding: 40px;
+    margin: 0px;
+    text-align: center;
+    background: whitesmoke;
+    color: rgb(88, 88, 88);
+    width: 100%;
+}
+
+.header h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.header h2 {
+    font-size: 40px;
+    text-align: left;
+}
+
+.header h3 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(88, 88, 88);
+}
+
+.navigation {
+    /*display: flex;
+    justify-content: space-between;*/
+    position: relative;
+    overflow: hidden;
+    background-color: #444;
+    margin: -10;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.navigation li {
+    display: inline;
+}
+
+.navigation a {
+    
+    display: inline-block;
+    list-style-type: none;
+    color: white;
+    text-align: center;
+    padding: 14px 40px;
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    background-color: whitesmoke;
+    color: #313131;
+    -webkit-transition: color 0.4s ease-out;
+    -moz-transition: color 0.4s ease-out;
+    -ms-transition: color 0.4s ease-out;
+    -o-transition: color 0.4s ease-out;
+    transition: color 0.4s ease-out;
+}
+
+footer {
+    background-color: whitesmoke;
+    padding: 14px;
+    text-align: center;
+    width: 100%;
+    color: gray;
+}
+
+.leftdiv {
+    float: left;
+}
+
+.rightdiv {
+    float: right;
+}
+
+
+div {
+    justify-content: center;
+    padding: 5%;
+    width: 90%;
+}
+/*
+ul { 
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+}*/
+
+.button {
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: black;
+    text-align: center;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+/*
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}*/
+
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    width: 100%;
+}
+
+td {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+tr {
+    border: none;
+    padding: 15px;
+}
+
+th {
+    border: none;
+    padding: 15px;
+}
+
+hr {
+    color: rgb(88, 88, 88);
+}
