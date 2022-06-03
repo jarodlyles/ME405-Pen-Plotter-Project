@@ -8,12 +8,18 @@ body {
 }
 
 .header {
-    padding: 40px;
+    padding: 5px;
     margin: 0px;
     text-align: center;
     background: whitesmoke;
     color: rgb(88, 88, 88);
     width: 100%;
+}
+
+.header h4 {
+    padding: 0px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .header h1 {
