@@ -2,7 +2,7 @@
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site/styles.css">
     <title>ME 405 Term Project | Lyles & Williamson</title>
     <head>
         <title>ME 405 Term Project | Lyles & Williamson</title>
@@ -18,13 +18,28 @@
 
         <ul class="navigation">
 
-            <li><a>Introduction</a></li>
-            <li><a>Analysis</a></li>
-            <li><a>Hardware Development</a></li>
-            <li><a>Firmware Development</a></li>
-            <li><a>Testing & Toubleshooting</a></li>
-            <li><a>Results</a></li>
+            <li><a href = "#intro">Introduction</a></li>
+            <li><a href = "#hardware">Hardware Development</a></li>
+            <li><a href = "#analysis">Analysis</a></li>
+            <li><a href = "#firmware">Firmware Development</a></li>
+            <li><a href = "#testing">Testing & Toubleshooting</a></li>
+            <li><a href = "#results">Results</a></li>
         </ul>
+
+        <section>
+            <div class="reference materials">
+                <h2>Reference Materials</h2>
+                <p>
+                    Please refer to the following links for source code, CAD models, and other project materials: 
+                    <ul>
+                        <li><a href="https://github.com/jarodlyles/jarodlyles.github.io">GitHub with CAD & Source Code</Code></a></li>
+                        <li><a href="https://loganwilliamson29.github.io">Doxygen Source Code Documentation</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <hr>
 
         <!--
         <section>
@@ -43,13 +58,201 @@
         -->
 
         <!--INTRODUCTION-->
+        <a name = "intro"></a>
         <section>
             <div class="intro">
                 <h2>Introduction</h2>
                 <p>
+                    The goal of this project was to design, build, analyze, and program a plotter robot capable for drawing an image. The requirements for this project were as follows:
+                    <ul>
+                        <li>The robot must be capable of drawing both rectilinear and curved shapes.</li>
+                        <li>The program must autonomously reproduce images using data exported from a drawing software such as Inkscape .</li>
+                        <li>Uncoupled x-y coordinate systems are off limits; the robot may not operate in a simple Cartesian coordinate system.</li>
+                        <li>The program controlling the robot was written in MicroPython and successfully run with consideration for the memory and processing capabilities of the provided microcontroller, an STM32L476 Nucleo.</li>
+                        <li>The robot must use stepper motors to control the position of the chosen drawing device.</li>
+                        <li>The drivers used to control each stepper motor will be a provided Trinamic TMC4210 and TMC2208 pair.</li>
+                        <li>Interaction with these drivers must be performed using serial peripheral interface (SPI) communication.</li>
+                        <li>Each team must write their own Python stepper driver class for control of their motors via the Trinamic drivers.</li>
+                        <li>The drawing program must utilize the cooperative multitasking scheduler from the cotask.py Python script provided courtesy of Professor Ridgely.</li>
+                        <li>The project must include at least one additional feature or functionality of the team’s choosing. This could be an analog joystick for manual operation, LED indicators which reflect the status of the device, an LCD display, etc.</li>
+	
+                    </ul> 
+                </p>
+                <p>
+                    Throughout the design process, intermediate tasks were assigned and evaluated to guide the firmware development. Computer aided design (CAD) and construction of the drawing mechanism was conducted independently by the team and evaluated via simple progress checks.
+                    Our team chose to design a robot that operates in a polar coordinate system. The radial component of this motion is produced by a ball screw linear actuator. The angular component of this motion is produced by direct drive of a turntable which also serves as the drawing surface for the device. The drawing tool used is a simple Bic ballpoint pen which is modified with a spring. This pen is actuated using a linear actuator containing a 12V DC motor, internal gearbox, and lead screw. 
+                    Figure 1 depicts the robot in its final iteration.
+                </p>
+                <figure>
+                    <img src="site/images/final.png" alt="Robot Final Iteration" class="center">
+                    <figcaption style="text-align:center"><b>Figure 1.</b> Final iteration of robot build.</figcaption>
+                </figure>
+            </div>
 
+        </section>
+        
+        <hr>
+
+        <!--HARDWARE DEVELOPMENT-->
+        <a name = "hardware"></a>
+        <section>
+            <div class="hardware">
+                <h2>Hardware Development</h2>
+                <h3>Robot Concept</h3>
+                <p>
+                </p>
+
+                <figure>
+                    <img src="site/images/initialconcept.png" alt="Initial Sketch" class="center">
+                    <figcaption style="text-align:center"><b>Figure 2.</b> Preliminay sketch of robot.</figcaption>
+                </figure>
+
+                <p>
+                
                 </p>
                 
+                <h3>Procurement & Detailed Design</h3>
+                <p>
+                
+                </p>
+                
+
+                <figure>
+                    <figcaption style="text-align:center"><b>Table 1.</b> Final bill of materials.</figcaption>
+                    <img src="site/images/bom.png" alt="BOM" class="center">
+                    
+                </figure>
+
+                <!--
+                <figure>
+                    <img src="site/images/iso1.png" alt="Isometric1" class="center">
+                    <figcaption style="text-align:center"><b>Figure 4.</b> Isometric view of CAD model.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/iso2.png" alt="Isometric2" class="center">
+                    <figcaption style="text-align:center"><b>Figure 5.</b> Alternate isometric view of CAD model.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/side.png" alt="Side View" class="center">
+                    <figcaption style="text-align:center"><b>Figure 6.</b> Side view of CAD model.</figcaption>
+                </figure>
+                -->
+                <div class="row">
+                    <div class="column">
+                        
+                            <img src="site/images/iso1.png" alt="Isometric1" class="center3">
+                            
+                    </div>
+                    <div class="column">
+                        
+                            <img src="site/images/iso2.png" alt="Isometric2" class="center3">
+                            
+                    </div>
+                    <div class="column">
+                        
+                            <img src="site/images/side.png" alt="Side View" class="center3">
+                            
+                    </div>
+                    <p style="text-align:center"><b>Figure 4.</b> Alternate isometric view of CAD model.</p>
+                </div>
+                  
+
+                <figure>
+                    <img src="site/images/pencarriage.png" alt="Pen Carriage" class="center2">
+                    <figcaption style="text-align:center"><b>Figure 5.</b> CAD model of pen carriage.</figcaption>
+                </figure>
+
+                <h3>Manufacturing</h3>
+                
+                <div style="text-align: center;">
+                    <iframe width="853" height="505" src="https://www.youtube.com/embed/vMb-ObxpULI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <figure>
+                    <img src="site/images/earlyiteration.png" alt="Early Iteration" class="center">
+                    <figcaption style="text-align:center"><b>Figure 6.</b> Early iteration of robot build.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/beltpulley.png" alt="Belt & Pulley" class="center">
+                    <figcaption style="text-align:center"><b>Figure 7.</b> Attempted belt and pulley drive of turntable.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/table.png" alt="MDF Drawing Table" class="center">
+                    <figcaption style="text-align:center"><b>Figure 8.</b> Laser cut drawing table.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/electronicsmounted.png" alt="Mounted Electronics" class="center">
+                    <figcaption style="text-align:center"><b>Figure 9.</b> Electronics mounted on robot.</figcaption>
+                </figure>
+
+                <h3>Electronics Assembly & Wiring</h3>
+
+                <figure>
+                    <img src="site/images/solderjoints.png" alt="Motor Driver Solder Joints" class="center">
+                    <figcaption style="text-align:center"><b>Figure 10.</b> Solder joints on the backside of motor driver hardware.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/tmcs.png" alt="Motor Driver Board" class="center">
+                    <figcaption style="text-align:center"><b>Figure 11.</b> Assembled motor driver board designed to accommodate two, two-phase bipolar stepper motors.</figcaption>
+                </figure>
+
+                <div class="row">
+                    <div class="column2">
+                        
+                            <img src="site/images/probingvref.png" alt="Probing Vref" class="center4">
+                            
+                    </div>
+                    <div class="column2">
+                        
+                            <img src="site/images/vrefreadout.png" alt="Vref readout" class="center4">
+                            
+                    </div>
+                    <p style="text-align:center"><b>Figure 12.</b> Measuring and setting Vref of TMC2208.</p>
+                </div>
+
+                <figure>
+                    <img src="site/images/wiringtotmc.png" alt="SPI Wiring" class="center5">
+                    <figcaption style="text-align:center"><b>Figure 13.</b> Wiring diagram for stepper motor control system. Note, the Nucleo L476RG board is omitted to make the pinouts of the Shoe of Brian visible. The Nucleo mount atop the pin headers on the left and right sides of the Shoe of Brian.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/spitodrivers.png" alt="SPI Wiring2" class="center5">
+                    <figcaption style="text-align:center"><b>Figure 14.</b> Data lines from the Shoe of Brian to the motor driver board.</figcaption>
+                </figure>
+
+                <figure>
+                    <figcaption style="text-align:center"><b>Table 2.</b> Pin Wiring from the Shoe of Brian to the male pins on motor driver board.</figcaption>
+                    <img src="site/images/spiwiringtable.png" alt="SPI Table" class="center">
+                </figure>
+
+                <figure>
+                    <img src="site/images/motorspecs.png" alt="Motor Specs" class="center5">
+                    <figcaption style="text-align:center"><b>Figure 15.</b> Motor specifications.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/wirecrimps.png" alt="Motor Wire Terminals" class="center5">
+                    <figcaption style="text-align:center"><b>Figure 16.</b> Motor phase lead wire crimp-on terminals.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/motorterminalwiring.png" alt="Motor Wiring" class="center">
+                    <figcaption style="text-align:center"><b>Figure 17.</b> Motor wiring to motor driver board terminal.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="site/images/boarddrivermotor.png" alt="Eaxmple Total Wiring" class="center5">
+                    <figcaption style="text-align:center"><b>Figure 18.</b> Wiring from STM32L476 to the motor.</figcaption>
+                </figure>
+
+                
+
             </div>
 
         </section>
@@ -57,6 +260,7 @@
         <hr>
 
         <!--ANALYSIS-->
+        <a name = "analysis"></a>
         <section>
             <div class="analysis">
                 <h2>Analysis</h2>
@@ -64,6 +268,12 @@
 
                 </p>
                 <h3>Kinematic Simulation</h3>
+
+                <figure>
+                    <img src="site/images/HW2_gif.gif" alt="Example Drawing GIF" class="center">
+                    <figcaption style="text-align:center"><b>Figure 19.</b> GIF of robot kinematics drawing. Note: units are in [mm].</figcaption>
+                </figure>
+
                 <h3>Newton-Raphson Solver</h3>
             </div>
 
@@ -71,21 +281,8 @@
         
         <hr>
 
-        <!--HARDWARE-->
-        <section>
-            <div class="hardware">
-                <h2>Hardware Development</h2>
-                <p>
-
-                </p>
-                
-            </div>
-
-        </section>
-        
-        <hr>
-
         <!--FIRMWARE-->
+        <a name = "firmware"></a>
         <section>
             <div class="firmware">
                 <h2>Firmware Development</h2>
@@ -98,25 +295,48 @@
 
                 </p>
 
+
                 <h3>Actuator Driver</h3>
                 <p>
 
                 </p>
+                <figure>
+                    <img src="site/images/jsactwiring.png" alt="Joystick and Actuator Wiring" class="center">
+                    <figcaption style="text-align:center"><b>Figure 19.</b> Wiring of joystick and linear actuator to the ST expansion baord and Nucleo Arduino headers.</figcaption>
+                </figure>
+
+                <figure>
+                    <figcaption style="text-align:center"><b>Table 3.</b> Linear actuator and expansion board pin configurations.</figcaption>
+                    <img src="site/images/linearactuatorwiring.png" alt="Table of Actuator Wiring and Pins" class="centerconfigtables">
+                </figure>
 
                 <h3>Joystick Driver</h3>
                 <p>
 
                 </p>
+                <figure>
+                    <figcaption style="text-align:center"><b>Table 4.</b> Joystick pin configurations on Nucleo.</figcaption>
+                    <img src="site/images/joystickwiring.png" alt="Table of Joystick Pin Configurations" class="centerconfigtables">
+                </figure>
 
                 <h3>State Machine Design</h3>
                 <p>
 
                 </p>
+                <figure>
+                    <img src="site/images/transition.png" alt="Actuate Motors State Transition diagram" class="centerstd">
+                    <figcaption style="text-align:center"><b>Figure 20.</b> State transition diagram of actuate motors task.</figcaption>
+                </figure>
 
                 <h3>Multitasking Implementation</h3>
                 <p>
 
                 </p>
+
+                <figure>
+                    <img src="site/images/task.png" alt="Task Diagram" class="centerstd">
+                    <figcaption style="text-align:center"><b>Figure 21.</b> Task diagram of multitasking scheme.</figcaption>
+                </figure>
                 
             </div>
 
@@ -125,13 +345,18 @@
         <hr>
 
         <!--TESTING-->
+        <a name = "testing"></a>
         <section>
             <div class="testing">
                 <h2>Testing & Troubleshooting</h2>
                 <p>
 
                 </p>
-                <iframe width="853" height="505" src="https://www.youtube.com/embed/pPUgUd1bJpc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div style="text-align: center;">
+                    <iframe width="853" height="505" src="https://www.youtube.com/embed/pPUgUd1bJpc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                
             </div>
 
         </section>
@@ -139,6 +364,7 @@
         <hr>
 
         <!--RESULTS-->
+        <a name = "results"></a>
         <section>
             <div class="results">
                 <h2>Results</h2>
@@ -156,10 +382,10 @@
             <p style="text-align:center">
                 <small>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Copyright &copy; 2022, Jarod Lyles & Logan Williamson.
                     <span style="float:right;">
-                        <img style="vertical-align:middle" src=americanflag.png alt="USA" height="30"/>&#160;&#160;&#160;United States
+                        <img style="vertical-align:middle" src=site/images/americanflag.png alt="USA" height="30"/>&#160;&#160;&#160;United States
                     </span>
                     <span style="float:left;">
-                        Cal Poly, San Luis Obispo&#160;&#160;&#160; <img style="vertical-align:middle" src=calpolymechanicalengineering.png alt="CPME" height="30"/>
+                        Cal Poly, San Luis Obispo&#160;&#160;&#160; <img style="vertical-align:middle" src=site/images/calpolymechanicalengineering.png alt="CPME" height="30"/>
                     </span>
                 </small>
             </p>
