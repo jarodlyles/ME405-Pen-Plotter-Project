@@ -14,7 +14,7 @@
 from pyb import Pin, Timer, delay
 
 class Actuator:
-    '''!@brief      A motor class for one channel.
+    '''!@brief      A class for controlling a DC motor in forward or reverse direction.
         @details    Class can be used to apply PWM to a
                     DC motor.
     '''

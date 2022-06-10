@@ -13,7 +13,7 @@
 from pyb import Pin, Timer, delay, ADC
 
 class Joystick:
-    '''!@brief      A joystick class to read one joystick.
+    '''!@brief      A joystick class to read one joystick via ADC and GPIO input.
         @details    Class can be used to setup a joystick on a Nucleo l476RG board.
     '''
     def __init__(self):

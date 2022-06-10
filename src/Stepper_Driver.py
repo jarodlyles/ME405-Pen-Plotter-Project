@@ -1,9 +1,20 @@
+'''!@file       Stepper_Driver.py
+    @brief      A driver for performing positional control of a stepper motor using the TMC2208 and TMC4210 drivers.
+    @details    This file contains a class that defines a stepper driver object that can control the position
+                of a stepper motor. This driver interfaces with the TMC4210 and TMC2208 chips to perform 
+                position control of a stepper motor. This driver is designed specifically for positional control of a stepper
+                motor.
+    @author     Jarod Lyles
+    @author     Logan Williamson
+    @date       June 1, 2022
+'''
+
 from pyb import SPI, Timer, Pin
 from time import sleep
+
 class StepperDriver:
-    '''
-    !@brief     A class file for interfacing with TMC4210 stepper drivers
-    @details    An instance of this class enables the user to interact with the basic 
+    '''!@brief      A class file for interfacing with TMC4210 stepper drivers
+        @details    An instance of this class enables the user to interact with the basic 
                 parameters required to enable and move a stepper motor driven by a Trinamic 
                 TMC4210 stepper motor driver.
     '''
