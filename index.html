@@ -99,6 +99,7 @@
             <div class="hardware">
                 <h2>Hardware Development</h2>
                 <h3>Robot Concept</h3>
+                
                 <p>
                     As a requirement of this project, we were unallowed to pursue a robot that use a Cartesian coordinate system, meaning the plotting schematic could not resemble a system where an origin is defined by two perpendicular axes and points are defined as a pair of signed values relative to this origin. This eliminated the gantry-style robot concepts commonly seen in many industrial automation machines, like CNC mills and 3D filament printers. After exploring concepts, we decided upon a machine utilizing a polar coordinate system, where position is defined by a radial distance and an angle value from an origin. There were a few fashions a polar coordinate system could be implemented. We decided to use a rotating turntable to control the angular degree of freedom and a screw mechanism to control the radial direction of freedom. 
                     Figure 2 captures a rough sketch of our concept.
@@ -106,9 +107,9 @@
 
                 <figure>
                     <img src="site/images/initialconcept.png" alt="Initial Sketch" class="center">
-                    <figcaption style="text-align:center"><b>Figure 2.</b> Preliminay sketch of robot.</figcaption>
+                    <figcaption style="text-align:center"><b>Figure 2.</b> Preliminary sketch of robot.</figcaption>
                 </figure>
-
+            
                 <p>
                     After deciding upon a conceptual direction, we pursued material selection and detailed design of the robot. 
                 </p>
@@ -117,7 +118,6 @@
                 <p>
                     Prior to detailed design, we scavenged for materials utilizing machine shop scrap and our personal project supplies. We found ample 1” by 1” and 2” by 1” 80/20 aluminum extrude in the Mustang 60 machine shop scrap for the structural build. Jarod found a linear actuator in his Arduino kit to serve as a pen actuator. This linear actuator utilizes a 12V brushed DC motor, a geartrain, and a lead screw to convert from the mechanical rotational domain to the linear mechanical domain. The linear actuator has built in limit switches to control limits of extension and retraction, avoiding burn out of the DC motor. After gathering initial materials, we pursued other material purchases to enhance our project. Approximately sizing our robot to draw on 8.5” by 11” paper, we order a 350mm ball screw kit and 300mm linear guide rail. Additionally, we decided to invest in our own NEMA 17 motors. Table 1 shows the final bill of materials for this project.
                 </p>
-                
 
                 <figure>
                     <figcaption style="text-align:center"><b>Table 1.</b> Final bill of materials.</figcaption>
@@ -163,9 +163,9 @@
                     </div>
                     <p style="text-align:center"><b>Figure 4.</b> Alternate isometric view of CAD model.</p>
                 </div>
-                  
+                
                 <p>
-                    As seen in Figure X, we designed to direct drive the ball screw and table of our design with flexible coupling connections. Parallel and opposite the ball screw, a linear rail provides a secondary support for the pen mounting and carriage. 
+                    We designed to direct drive the ball screw and table of our design with flexible coupling connections. Parallel and opposite the ball screw, a linear rail provides a secondary support for the pen mounting and carriage. 
                     Figure 5 shows the detailed pen carriage mechanism that houses the pen and linear actuator. This pen carriage spans between the linear rail and ball screw, bolting to the respective faces of both.
                 </p>
                 <figure>
@@ -177,7 +177,7 @@
                     The eyehole end of the linear actuator connects to the pen by a bracket. Since the pen does not extends the pen/actuator carriage maintains axial fixation of the pen with a slip fit between the shaft of the pen. 
                     With detailed design of our machine in place, we proceed to manufacture our robot. Between our CAD model and manufacturing, a few iterations were made on the fly. As such, our CAD model does not precisely reflect our final mechanical assembly, but demonstrates general concept and sizing. We knew there would be a few unique parts that would require some machine time. 
                 </p>
-
+                
                 <h3>Manufacturing</h3>
 
                 <p>
@@ -195,7 +195,7 @@
                     <img src="site/images/earlyiteration.png" alt="Early Iteration" class="center">
                     <figcaption style="text-align:center"><b>Figure 6.</b> Early iteration of robot build.</figcaption>
                 </figure>
-
+                
                 <p>
                     Using the Prusa i3 MK3S+ printer in Mustang 60, we 3D-printed the many parts with complex geometries – the actuator carriage, table locating pins, table mount bracket, and pen mount bracket. Upon initial assembly, we had difficult aligning the concentricity of the turntable motor shaft with that of the square turntable bearing. First, we tried to off board the motor and make up for any play in concentricity with a belt driven mechanism. However, belt tensioning was difficult to tune, and deflection of the table pulley was significant. 
                     Figure 7 shows our attempt at a belt and pulley drive system.
@@ -226,7 +226,7 @@
 
                 <p>
                     Ultimately, after working through our manufacturing issues, we achieved a successful mechanical build. 
-                    Figure 10 shows our final mechanical build. The video below explains our mechanical build in greater detail.
+                    Figure 10 shows our final mechanical build.
                 </p>
 
                 <figure>
@@ -234,8 +234,14 @@
                     <figcaption style="text-align:center"><b>Figure 10.</b> Final iteration of robot build.</figcaption>
                 </figure>
 
-                <h3>Electronics Assembly & Wiring</h3>
+                <p>The video below explains our mechanical build and mechanisms in there final form.</p>
                 
+                <div style="text-align: center;">
+                    <iframe width="853" height="505" src="https://www.youtube.com/embed/88vFYLDwm24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <h3>Electronics Assembly & Wiring</h3>
+    
                 <p>
                     We needed to prepare several items of hardware for programming including the motor driver boards, the motors, and the connection between our peripheral and controller.
                     To assembly our motor driver board, we soldered the provided wire-to-board headers, pin headers for the TMC2208 motor drivers, male pin adapters, and capacitor using the Hakko irons and 67-Sn / 37-Pb composition, flux-core solder provided in the mechatronics lab. 
@@ -335,14 +341,13 @@
                     <img src="site/images/boarddrivermotor.png" alt="Eaxmple Total Wiring" class="center5">
                     <figcaption style="text-align:center"><b>Figure 18.</b> Wiring from STM32L476 to the motor.</figcaption>
                 </figure>
-                
+                -->
 
             </div>
 
         </section>
         
         <hr>
-
         <!--ANALYSIS-->
         <a name = "analysis"></a>
         <section>
@@ -456,7 +461,7 @@
             <div class="firmware">
                 <h2>Firmware Development</h2>
                 <p>
-
+                    In parallel with our hardware build, we programmed the classes and tasking we would need for robot controls.
                 </p>
 
                 <h3>Stepper Driver</h3>
@@ -555,23 +560,27 @@ Lastly, to signal whether the pen was up our down for testing purposes, we added
                     With our robot built, our drivers written, and out state machine defined, we went about hardware firmware integration.
                 </p>
 
-                <h2>Change to the Stepper Driver</h2>
+                <h3>Change to the Stepper Driver</h3>
                 <p>
                     The first issue we ran into came with the behavior of our stepper motors. The motors, upon testing, were inconsistent in their ability to provide position control. Procedurally, we test position control by setting the motor driver position to a position, allow the motors to run to said position, then set the motor drivers back to the initial position. Physically, we marked on our turntable these positions. We found that the motors did not return to their initial position and the amount they were off from the initial position was unrepeatable. Additionally, the motors were putting out low torque.
                     First, we look at our physical motor drivers. The driver boards were configured for 8 micro steps, which equates to 1600 motor ticks for one revolution given our 200 step NEMA 17 motors. We noted this. Next, we examined our motor driver class and its many configured parameters. We found that our max velocity value was less than our minimum velocity value. We first correct this. To get the most torque out of our motors, we turned up max acceleration to maximum value. Lastly, we looked at our PULSE_DIV and RAMP_DIV values. After discussing with other teams that had been successful in implementation of NEMA 17 motors, we turned down our PULSE_DIV and RAMP_DIV from values of 20 to 8. After testing our motors with this new driver configuration, we found precise position control and much better torque performance from our motors.
                 </p>
 
-                <h2>Manual control</h2>
+                <h3>Manual control</h3>
                 <p>
                     We first implemented manual control in a separate generator isolated from the rest of our state machine. Instead of setting our motors in velocity control mode, we decided to simulate velocity control with position control. Using our joystick driver, we iteratively added ADC read out values from the joystick potentiometers to variables for positions of the motors. We divided these position values by a factor to reduce the scale of the position values and, correspondingly, the rate at which ADC values were added to the position value. The reduction factors were determined separately for the turntable position and the radial position through testing, where release of the joystick would result in minimal overshoot for the user’s intended position. To implement the actuation of the pen, we used our switch read function of our joystick driver to provide a toggling Boolean value of the on/off state of the pen. According to this Boolean, value, we called the appropriate pen up or pen down function of out actuator class.
+                    The video below demos our manual jog control.
                 </p>
+                <div style="text-align: center;">
+                    <iframe width="853" height="505" src="https://www.youtube.com/embed/kd-8liHmBro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
 
-                <h2>State Machine Design</h2>
+                <h3>State Machine Design</h3>
                 <p>
                     When we initially implemented our state machine, we were running into memory allocation issues and situations where the Nucleo board would stop responding with the computer. We diagnosed that our management of data processing was too much for the flash memory of the Nucleo. Our state machine initially consisted of two tasks – an actuate motors and generate thetas task. Our generate thetas task processed the .hpgl file on the board converting it to X-Y position values then to angular position values to actuate the motors. We were attempting to perform both x-y coordinate value and theta value calculation, reading, and writing from text files entirely within the cooperative multitasking framework. However, this proved to be altogether too much for our hardware to process. After troubleshooting this issue for a couple of days (we initially thought our issue had something to do with the implementation of our manual control in the state machine), we corrected the issue by preprocessing the .hpgl file into x-y coordinate and theta values prior to running our multitasking scheme. Once we demonstrated that we could draw with preprocessed data, we decided to add back our generate thetas task to the multitasking structure, where we first preprocessed X-Y values prior to running the multitasking scheduler and then calculated theta values on the fly during state machine operation. Each resulting pair of theta values is then buffered in a task_share.queue data sharing object for later retrieval by the motor actuation task upon subsequent scheduled appointments of that task. This reduced the final program startup time, and properly utilizes the cooperative multitasking framework required for this project.
                 </p>
 
-                <h2>Automated Drawing</h2>
+                <h3>Automated Drawing</h3>
 
                 <p>
                     With our first attempts at automated drawing, it was apparent the robot was following the same path, but the image did not reflect that of a triangle. The video below depicts our robots first automated drawing.
@@ -604,9 +613,27 @@ Lastly, to signal whether the pen was up our down for testing purposes, we added
                     The final functionality of the design is demonstrated in the following video.
                 </p>
 
+                <div style="text-align: center;">
+                    <iframe width="853" height="505" src="https://www.youtube.com/embed/XMGm9OYLKRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
                 <p>
-                    Below is a comparison between our .hpgl-exported Inskcape drawing and the drawing result of our robot.
+                    Below, in Figure 23, is a comparison between our .hpgl-exported Inskcape drawing and the drawing result of our robot.
                 </p>
+
+                <div class="row">
+                    <div class="column2">
+                        
+                            <img src="site/images/inkscapefinal.png" alt="Inkscape hpgl" class="center5">
+                            
+                    </div>
+                    <div class="column2">
+                        
+                            <img src="site/images/finalhpgl.jpg" alt="Final Drawing" class="center5">
+                            
+                    </div>
+                    <p style="text-align:center"><b>Figure 23.</b> Comparison of Inkscape drawing to physical robot drawing.</p>
+                </div>
 
                 <p>
                     Given more time, there are several features that we would like to implement to further improve the functionality of this system. Setting up UART communication with a PC or user frontend would improve the user experience when plotting with this device. The ability to allow the user to select from a list of loaded .hpgl files by typing in a filename would be the first additional feature we would include. This could be implemented as an additional task which sends and receives serial communication data from the PC regarding which .hpgl files are on the Nucleo and which selection the user makes from these files. Overwriting the existing filename variable with a user input would then allow plotting of the associated file on the MCU without ever exiting the multitasking program. In the current program structure, this would still require all .hpgl files on the board to be pre-parsed and interpolated into x- y-coordinate text files. This would decrease program startup time noticeably.
